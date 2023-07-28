@@ -88,19 +88,96 @@ O projeto está organizado da seguinte forma:
 
 ## Descrição dos Pacotes
 
-- **dslearnbds**: Pacote raiz do projeto Spring Boot.
-- **components**: Contém componentes relacionados a melhorias no token JWT.
-- **config**: Contém classes de configuração, como a configuração do servidor de autorização, servidor de recursos e segurança web.
-- **dto**: Contém classes Data Transfer Object (DTO) para transferir dados entre a API e a camada de serviço.
-- **entities**: Contém as classes de entidades do domínio do projeto, que são mapeadas para tabelas no banco de dados.
-- **enums**: Contém enumerações utilizadas no projeto.
-- **pk**: Contém classes de chaves primárias compostas de entidades.
-- **repositories**: Contém interfaces que fornecem acesso aos dados do banco de dados (Repositories).
-- **resources**: Contém classes de recursos da API que definem os endpoints para as operações CRUD.
-- **exceptions**: Contém classes de exceção personalizadas para tratamento de erros específicos da API.
-- **services**: Contém as classes de serviços que implementam a lógica de negócio da API.
+### Pacote components
 
-## Endpoints da API
+- `JwtTokenEnhancer.java`: Componente responsável por aprimorar o token JWT com informações adicionais durante o processo de autenticação e autorização.
+
+### Pacote config
+
+- `AppConfig.java`: Configurações gerais da aplicação Spring Boot.
+- `AuthorizationServerConfig.java`: Configuração do servidor de autorização OAuth 2.0 para gerenciar os tokens de acesso.
+- `ResourceServerConfig.java`: Configuração do servidor de recursos OAuth 2.0 para proteger os endpoints da aplicação.
+- `WebSecurityConfig.java`: Configuração da segurança da aplicação, definindo as regras de autenticação.
+
+### Pacote dto
+
+- `DeliverRevisionDTO.java`: DTO (Data Transfer Object) para a revisão de uma entrega.
+- `NotificationDTO.java`: DTO para representar uma notificação.
+- `UserDTO.java`: DTO para representar um usuário.
+
+### Pacote entities
+
+Contém as classes de entidades que são mapeadas para tabelas no banco de dados:
+
+- `Content.java`: Entidade que representa o conteúdo de um recurso.
+- `Course.java`: Entidade que representa um curso.
+- `Deliver.java`: Entidade que representa uma entrega de tarefa.
+- `Enrollment.java`: Entidade que representa a matrícula de um usuário em um curso.
+- `Lesson.java`: Entidade que representa uma aula de um curso.
+- `Notification.java`: Entidade que representa uma notificação.
+- `Offer.java`: Entidade que representa a oferta de um curso.
+- `Reply.java`: Entidade que representa a resposta a uma tarefa.
+- `Resource.java`: Entidade que representa um recurso.
+- `Role.java`: Entidade que representa uma função (perfil) de usuário.
+- `Section.java`: Entidade que representa uma seção de um curso.
+- `Task.java`: Entidade que representa uma tarefa.
+- `Topic.java`: Entidade que representa um tópico.
+- `User.java`: Entidade que representa um usuário.
+
+### Pacote enums
+
+- `DeliverStatus.java`: Enumeração para os possíveis status de uma entrega.
+- `ResourceType.java`: Enumeração para os tipos de recursos.
+
+### Pacote pk
+
+- `EnrollmentPK.java`: Classe que representa a chave primária composta da entidade Enrollment.
+
+### Pacote repositories
+
+- `CourseRepository.java`: Interface do repositório para a entidade Course.
+- `DeliverRepository.java`: Interface do repositório para a entidade Deliver.
+- `EnrollmentRepository.java`: Interface do repositório para a entidade Enrollment.
+- `LessonRepository.java`: Interface do repositório para a entidade Lesson.
+- `NotificationRepository.java`: Interface do repositório para a entidade Notification.
+- `OfferRepository.java`: Interface do repositório para a entidade Offer.
+- `ReplyRepository.java`: Interface do repositório para a entidade Reply.
+- `ResourceRepository.java`: Interface do repositório para a entidade Resource.
+- `RoleRepository.java`: Interface do repositório para a entidade Role.
+- `SectionRepository.java`: Interface do repositório para a entidade Section.
+- `TopicRepository.java`: Interface do repositório para a entidade Topic.
+- `UserRepository.java`: Interface do repositório para a entidade User.
+
+### Pacote resources
+
+- `DeliverResource.java`: Classe de recurso que representa o endpoint para entregas.
+- `NotificationResource.java`: Classe de recurso que representa o endpoint para notificações.
+- `UserResource.java`: Classe de recurso que representa o endpoint para usuários.
+
+### Pacote exceptions
+
+- `FieldMessage.java`: Classe para representar mensagens de erro de campos.
+- `OAuthCustomError.java`: Classe para representar erros personalizados de autenticação e autorização.
+- `ResourceExceptionHandler.java`: Classe para lidar com exceções globais na aplicação.
+- `StandardError.java`: Classe para representar erros padrão.
+- `ValidationError.java`: Classe para representar erros de validação.
+
+### Pacote services
+
+- `AuthService.java`: Interface do serviço de autenticação.
+- `DeliverService.java`: Interface do serviço de entrega.
+- `NotificationService.java`: Interface do serviço de notificação.
+- `UserService.java`: Interface do serviço de usuário.
+
+### Pacote exceptions
+
+- `DatabaseException.java`: Exceção personalizada para erros relacionados ao banco de dados.
+- `ForbiddenException.java`: Exceção personalizada para erros de acesso não autorizado.
+- `ResourceNotFoundException.java`: Exceção personalizada para erros de recurso não encontrado.
+- `UnauthorizedException.java`: Exceção personalizada para erros de autenticação e autorização.
+
+
+### Endpoints da API
 
 Os endpoints da API podem ser testados usando o [Postman](https://www.postman.com/). Abaixo estão os principais endpoints:
 
@@ -115,7 +192,7 @@ Os endpoints da API podem ser testados usando o [Postman](https://www.postman.co
 
 Os endpoints de autenticação são protegidos e requerem um token de acesso válido para serem acessados.
 
-## Utilização no Postman
+### Utilização no Postman
 
 Para utilizar os endpoints da API, importe a coleção do Postman através do link [https://www.postman.com/collections/b156d5adf224f89f6ca3](https://www.postman.com/collections/b156d5adf224f89f6ca3). A coleção contém requisições configuradas para testar os principais endpoints da API.
 
