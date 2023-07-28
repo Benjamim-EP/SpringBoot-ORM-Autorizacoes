@@ -90,9 +90,13 @@ O projeto está organizado da seguinte forma:
 
 ### Pacote components
 
+Contém componentes relacionados a melhorias no token JWT.
+
 - `JwtTokenEnhancer.java`: Componente responsável por aprimorar o token JWT com informações adicionais durante o processo de autenticação e autorização.
 
 ### Pacote config
+
+Contém classes de configuração, como a configuração do servidor de autorização, servidor de recursos e segurança web.
 
 - `AppConfig.java`: Configurações gerais da aplicação Spring Boot.
 - `AuthorizationServerConfig.java`: Configuração do servidor de autorização OAuth 2.0 para gerenciar os tokens de acesso.
@@ -100,6 +104,8 @@ O projeto está organizado da seguinte forma:
 - `WebSecurityConfig.java`: Configuração da segurança da aplicação, definindo as regras de autenticação.
 
 ### Pacote dto
+
+Contém classes Data Transfer Object (DTO) para transferir dados entre a API e a camada de serviço.
 
 - `DeliverRevisionDTO.java`: DTO (Data Transfer Object) para a revisão de uma entrega.
 - `NotificationDTO.java`: DTO para representar uma notificação.
@@ -131,9 +137,13 @@ Contém as classes de entidades que são mapeadas para tabelas no banco de dados
 
 ### Pacote pk
 
+Contém classes de chaves primárias compostas de entidades.
+
 - `EnrollmentPK.java`: Classe que representa a chave primária composta da entidade Enrollment.
 
 ### Pacote repositories
+
+ Contém interfaces que fornecem acesso aos dados do banco de dados (Repositories).
 
 - `CourseRepository.java`: Interface do repositório para a entidade Course.
 - `DeliverRepository.java`: Interface do repositório para a entidade Deliver.
@@ -150,11 +160,15 @@ Contém as classes de entidades que são mapeadas para tabelas no banco de dados
 
 ### Pacote resources
 
+Contém classes de recursos da API que definem os endpoints para as operações CRUD.
+
 - `DeliverResource.java`: Classe de recurso que representa o endpoint para entregas.
 - `NotificationResource.java`: Classe de recurso que representa o endpoint para notificações.
 - `UserResource.java`: Classe de recurso que representa o endpoint para usuários.
 
 ### Pacote exceptions
+
+ Contém classes de exceção personalizadas para tratamento de erros específicos da API.
 
 - `FieldMessage.java`: Classe para representar mensagens de erro de campos.
 - `OAuthCustomError.java`: Classe para representar erros personalizados de autenticação e autorização.
@@ -163,6 +177,8 @@ Contém as classes de entidades que são mapeadas para tabelas no banco de dados
 - `ValidationError.java`: Classe para representar erros de validação.
 
 ### Pacote services
+
+Contém as classes de serviços que implementam a lógica de negócio da API.
 
 - `AuthService.java`: Interface do serviço de autenticação.
 - `DeliverService.java`: Interface do serviço de entrega.
